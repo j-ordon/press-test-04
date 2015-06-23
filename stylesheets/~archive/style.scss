@@ -1,0 +1,224 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import "normalize.css";
+
+$base-text-color: #282827;
+$small-screen: new-breakpoint(max-width 620px);
+$medium-screen:	new-breakpoint(max-width 1100px);
+
+$regular-weight: 400;
+$bold-weight: 800;
+$body-font: 'Cutive Mono', 'helvetica', 'sans-serif';
+
+$topside-margin: 1.3em;
+
+$link-color: green;
+
+
+img {
+	width: 100%;
+	display: block;
+}
+
+body {
+	background: #F9F2E8;
+	// background: url(images/texture.jpeg);
+}
+
+h1, h2, h3, h4, p, ul {
+	font-family: $body-font;
+	color: $base-text-color;
+}
+
+p {
+	line-height: 1.4em;
+}
+
+section {
+	@include outer-container;
+	@include media($medium-screen) {
+		margin: 0 $topside-margin;
+		// @include pad();
+	}
+}
+
+a {
+	text-decoration: none;
+	color: $link-color;
+}
+
+a:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+.navigation {
+	.logo-type {
+		@include span-columns(2);
+		color: $base-text-color;
+		max-width: 200px;
+		@include media($small-screen) {
+			@include span-columns(3);
+		}
+	}
+	a {
+		text-decoration: none;
+		color: $base-text-color;
+	}
+	ul {
+		@include span-columns(10);
+		list-style-type: none;
+		@include media($small-screen) {
+			@include span-columns(9);
+			@include shift(0);
+		} 
+		li {
+			text-align: right;
+			padding: ($topside-margin / 4);
+		}
+	}
+	border-bottom: solid 1px;
+}
+
+ // Home
+
+.studio-intro {
+	p {
+		@include span-columns(6);
+		clear: both;
+		margin-bottom: 0;
+		@include media($medium-screen) {
+			@include span-columns(8);
+		}
+		@include media($small-screen) {
+			@include span-columns(12);
+		}
+	}
+}
+
+// Footer 
+
+footer {
+	@include outer-container;
+	border-top: solid 1px;
+	margin-top: $topside-margin;
+	padding-bottom: ($topside-margin * 2);
+	@include media($medium-screen) {
+		@include pad();
+		margin: $topside-margin;
+		text-align: center;
+	}
+}
+
+// Contact
+
+.contact-card {
+	@include span-columns(12);
+	margin-top: 1em;
+	h1 {
+		font-size: 1.6em;
+		margin: 0;
+		padding: 0;
+	}
+	h2 {
+		font-size: 1em;
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+}
+
+// Services
+
+.services {
+	p {
+		text-transform: uppercase;
+	}
+}
+
+// Work 
+
+.project-preview {
+	@include span-columns(3);
+	@include omega(4n);
+	background: white;
+
+	// height: 12em;
+	margin-top: 1em;
+	@include media($medium-screen) {
+		@include span-columns(3);
+		@include omega(4n);
+	}
+	@include media($small-screen) {
+		@include span-columns(12);
+	}
+}
+
+// Project
+
+.project {
+	// project title
+	h1 {
+		margin: 0;
+		text-transform: uppercase;
+		font-size: 1em;	
+		font-weight: $bold-weight;
+	}
+	// project roles (design/photography/etc)
+	h2 {
+		font-size: 1em;
+		font-weight: $regular-weight;
+	}
+
+	.project-wrap {
+		@include outer-container;
+		margin-top: $topside-margin;
+	}
+
+	.project-info {
+		@include span-columns(4);
+		@include media($medium-screen) {
+			@include span-columns(6);
+		}
+		@include media($small-screen) {
+			@include span-columns(12);
+		} 
+	}
+
+	.project-hero {
+		@include span-columns(8);
+		@include omega();
+		@include media($medium-screen) {
+			@include span-columns(6);
+			@include omega();
+		}
+		@include media($small-screen) {
+			@include span-columns(12);
+		} 
+	}
+
+	.project-shot {
+			@include span-columns(8);
+			@include omega();			
+			@include shift(4);
+			margin-top: $topside-margin;
+				@include media($medium-screen) {
+					@include span-columns(6);
+					@include shift(0);
+					@include media($small-screen) {
+						@include span-columns(12);
+					}
+		} 
+	}
+	.snapshots {
+		@include outer-container();
+		margin-top: $topside-margin;
+		border-top: solid 1px;
+	}
+	.project-snapshot {
+		@include span-columns(4);
+		margin-top: $topside-margin;
+		height: 300px;
+		background: white;
+	}
+}
